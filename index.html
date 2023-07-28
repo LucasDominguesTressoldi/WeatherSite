@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="stylesheet" href="css/header.css">
+  <title>WeatherNow</title>
+</head>
+
+<body>
+  <main id="main">
+    <div class="select-place">
+      <div class="select-country">
+        <p>Select a country:</p>
+        <button class="br"><img src="assets/brasil-icon.png" alt="Brazil's flag"></button>
+        <button class="ar"><img src="assets/argentina-icon.png" alt="Argentina's flag"></button>
+        <button class="us"><img src="assets/usa-icon.png" alt="United States of America's flag"></button>
+        <button class="cn"><img src="assets/canada-icon.png" alt="Canada's flag"></button>
+        <button class="en"><img src="assets/england-icon.png" alt="England's flag"></button>
+        <button class="es"><img src="assets/spain-icon.png" alt="Spain's flag"></button>
+        <button class="de"><img src="assets/germany-icon.png" alt="Germany's flag"></button>
+        <button class="fr"><img src="assets/france-icon.png" alt="France's flag"></button>
+        <button class="it"><img src="assets/italy-icon.png" alt="Italy's flag"></button>
+        <button class="sa"><img src="assets/south-africa-icon.png" alt="South Africa's flag"></button>
+        <button class="jp"><img src="assets/japan-icon.png" alt="Japan's flag"></button>
+        <button class="kr"><img src="assets/south-korea-icon.png" alt="South Korea's flag"></button>
+        <button class="cn"><img src="assets/china-icon.png" alt="China's flag"></button>
+      </div>
+      <div class="select-city">
+        <input type="text" class="city-input" placeholder="Which city?">
+      </div>
+    </div>
+
+    <div class="example">
+      <h1 id="city-name"></h1>
+      <h2 id="temperature"></h2>
+    </div>
+  </main>
+
+  <script src="app.js" type="module"></script>
+</body>
+
+</html>

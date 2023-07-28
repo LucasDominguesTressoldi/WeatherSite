@@ -1,0 +1,16 @@
+.select-country {
+  display: flex;
+}
+
+.select-country button {
+  background-color: transparent;
+  border: none;
+}
+
+.select-country button:hover {
+  cursor: pointer;
+}
+
+.select-country button img {
+  width: 60px;
+}
