@@ -1,0 +1,18 @@
+:root {
+  --primary-color: #FFF;
+  --secondary-color: #000;
+
+  --title: 20px;
+  --text: 16px;
+}
+
+body {
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Montserrat', monospace;
+}
+
+::placeholder {
+  color: var(--primary-color);
+  font-weight: bold;
+}
