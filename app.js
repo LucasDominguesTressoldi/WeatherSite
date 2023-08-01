@@ -1,6 +1,8 @@
 const API_KEY = "🤫secret🤫";
 const searchButton = document.querySelector(".search");
 const countryButtons = document.querySelectorAll(".select-country button");
+const celsiusButton = document.getElementById("c");
+const fahrenheitButton = document.getElementById("f");
 
 function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
@@ -9,6 +11,22 @@ function capitalize(str) {
 function selectCountry(element) {
   const country = document.querySelector(`.${element}`);
   country.classList.add("selected");
+}
+
+function changeScales() {
+  const temperature = document.getElementById("temperature").textContent;
+  const scaleNotSelected = document.querySelector(".not-selected");
+  scaleNotSelected.classList.remove("not-selected");
+
+  if (scaleNotSelected.id === "f") {
+    const celsiusButton = document.getElementById("c");
+    celsiusButton.classList.add("not-selected");
+  } else {
+    const fahrenheitButton = document.getElementById("f");
+    fahrenheitButton.classList.add("not-selected");
+  }
+
+  if (temperature !== "?") setAPI();
 }
 
 function createWeatherIcon(time, weather) {
@@ -84,16 +102,53 @@ function changeBgAndIcon(weather) {
 }
 
 function getAPIData(data) {
-  const nameCity = data.name;
-  const temp = parseInt(data.main.temp - 273.15); //°F -459.67
-  const maxTemp = parseInt(data.main.temp_max - 273.15); //°F -459.67
-  const minTemp = parseInt(data.main.temp_min - 273.15); //°F -459.67
-  const description = capitalize(data.weather[0].description);
+  const scaleButtonNotSelected = document.querySelector(".not-selected");
   const weatherMain = capitalize(data.weather[0].main);
-  // const weather = [nameCity, `${temp}°C`, `${maxTemp}°C`, ${minTemp}°C`, weatherMain, description,];
-  // console.log(weather);
-  document.getElementById("temperature").textContent = temp;
-  document.getElementById("city-name").textContent = nameCity;
+
+  const nameCity = data.name;
+  const tempC = parseInt(data.main.temp - 273.15);
+  const tempF = parseInt(((data.main.temp - 273.15) * 9) / 5 + 32);
+
+  const description = capitalize(data.weather[0].description);
+
+  const maxTempC = parseInt(data.main.temp_max - 273.15);
+  const minTempC = parseInt(data.main.temp_min - 273.15);
+  const feelsLikeC = parseInt(data.main.feels_like - 273.15);
+
+  const maxTempF = parseInt(((data.main.temp_max - 273.15) * 9) / 5 + 32);
+  const minTempF = parseInt(((data.main.temp_min - 273.15) * 9) / 5 + 32);
+  const feelsLikeF = parseInt(((data.main.feels_like - 273.15) * 9) / 5 + 32);
+
+  const humidity = parseInt(data.main.humidity);
+  const windSpeed = parseFloat(data.wind.speed * 3.6).toFixed(1);
+
+  if (scaleButtonNotSelected.id === "f") {
+    document.getElementById("temperature").textContent = tempC;
+    document.getElementById("city-name").textContent = nameCity;
+    document.getElementById("description").textContent = description;
+    document.getElementById("max-temp").textContent = `Max.🔥 ${maxTempC}°C`;
+    document.getElementById("min-temp").textContent = `Min.❄️ ${minTempC}°C`;
+    document.getElementById(
+      "feels-like"
+    ).textContent = `Feels.🌡️ ${feelsLikeC}°C`;
+    document.getElementById("humidity").textContent = `Humi.💧 ${humidity}%`;
+    document.getElementById(
+      "wind-speed"
+    ).textContent = `Wind.🍃 ${windSpeed}Km/h`;
+  } else {
+    document.getElementById("temperature").textContent = tempF;
+    document.getElementById("city-name").textContent = nameCity;
+    document.getElementById("description").textContent = description;
+    document.getElementById("max-temp").textContent = `Max.🔥 ${maxTempF}°F`;
+    document.getElementById("min-temp").textContent = `Min.❄️ ${minTempF}°F`;
+    document.getElementById(
+      "feels-like"
+    ).textContent = `Feels.🌡️ ${feelsLikeF}°F`;
+    document.getElementById("humidity").textContent = `Humi.💧 ${humidity}%`;
+    document.getElementById(
+      "wind-speed"
+    ).textContent = `Wind.🍃 ${windSpeed}Km/h`;
+  }
 
   changeBgAndIcon(weatherMain);
 }
@@ -102,7 +157,6 @@ function initializeAPI(link) {
   fetch(link)
     .then((response) => response.json())
     .then((data) => {
-      // console.log(data);
       getAPIData(data);
     })
     .catch((error) => {
@@ -114,8 +168,6 @@ function initializeAPI(link) {
       }
     });
 }
-
-// changeBgAndIcon();
 
 countryButtons.forEach((button) => {
   button.addEventListener("click", () => {
@@ -131,3 +183,6 @@ document.addEventListener("keypress", (event) => {
     setAPI();
   }
 });
+
+celsiusButton.addEventListener("click", changeScales);
+fahrenheitButton.addEventListener("click", changeScales);
