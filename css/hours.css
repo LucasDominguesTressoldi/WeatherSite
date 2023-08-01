@@ -1,0 +1,11 @@
+.hours {
+  background-color: var(--bg-color);
+  border-radius: 10px;
+  color: var(--primary-color);
+  font-size: var(--lg-text);
+  margin: 20px;
+  padding: 5px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}

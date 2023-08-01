@@ -72,11 +72,27 @@ function setAPI() {
   initializeAPI(link);
 }
 
-function changeBgAndIcon(weather) {
-  const hours = new Date().getHours();
+function changeBgAndIcon(weather, timezone) {
   document.body.style.backgroundColor = "none";
 
-  if ((hours >= 6) & (hours <= 18)) {
+  const hours = Math.floor(Math.abs(timezone) / 3600);
+  const minutes = (Math.abs(timezone) % 3600) / 60;
+  const signal = timezone >= 0 ? "+" : "-";
+  const offset = parseInt(
+    `${signal}${hours.toString().padStart(2, "0")}:${minutes
+      .toString()
+      .padStart(2, "0")}`
+  );
+  const now = new Date();
+  const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+  const countryHours = new Date(utc + 3600000 * offset);
+  const localHours = countryHours.getHours();
+
+  document.querySelector(
+    ".hours p"
+  ).textContent = `${countryHours.getHours()}:${countryHours.getMinutes()}`;
+
+  if ((localHours >= 6) & (localHours <= 18)) {
     if (weather === "Rain") {
       document.body.style.backgroundImage = `url('../assets/rainy-day.jpg')`;
       createWeatherIcon("day", "rainy");
@@ -104,6 +120,7 @@ function changeBgAndIcon(weather) {
 function getAPIData(data) {
   const scaleButtonNotSelected = document.querySelector(".not-selected");
   const weatherMain = capitalize(data.weather[0].main);
+  const timezone = parseInt(data.timezone);
 
   const nameCity = data.name;
   const tempC = parseInt(data.main.temp - 273.15);
@@ -150,7 +167,7 @@ function getAPIData(data) {
     ).textContent = `Wind.🍃 ${windSpeed}Km/h`;
   }
 
-  changeBgAndIcon(weatherMain);
+  changeBgAndIcon(weatherMain, timezone);
 }
 
 function initializeAPI(link) {
