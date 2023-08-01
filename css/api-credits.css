@@ -1,0 +1,11 @@
+.api-credits {
+  background-color: var(--bg-color);
+  border-radius: 5px;
+  bottom: 0;
+  color: var(--primary-color);
+  font-size: var(--sm-text);
+  margin: 20px;
+  padding: 5px;
+  position: absolute;
+  right: 0;
+}

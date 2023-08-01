@@ -1,6 +1,4 @@
 .select-place {
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 0 0 20px 0;
   padding: 10px 0 10px 10px;
   width: 25%;
 }
@@ -14,7 +12,7 @@
 
 .select-country p {
   color: var(--primary-color);
-  font-size: var(--text);
+  font-size: var(--sm-text);
   font-weight: bold;
 }
 
@@ -40,10 +38,10 @@
 
 .city-input {
   background-color: transparent;
-  border: 1px solid var(--primary-color);
-  border-radius: 20px;
+  border: 2px solid var(--primary-color);
+  border-radius: 10px;
   color: var(--primary-color);
-  font-size: var(--text);
+  font-size: var(--sm-text);
   font-weight: bold;
   padding: 10px;
   width: 210px;
@@ -56,10 +54,11 @@
 .search {
   background-color: transparent;
   border: none;
+  margin-left: 10px;
 }
 
 .search img {
-  width: 25px;
+  width: 35px;
 }
 
 .selected {

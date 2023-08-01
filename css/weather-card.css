@@ -1,0 +1,57 @@
+.weather-card {
+  background-color: var(--bg-color);
+  align-items: center;
+  border-radius: 10px;
+  color: var(--primary-color);
+  display: flex;
+  font-size: var(--md-text);
+  font-weight: bold;
+  height: 400px;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 40%;
+}
+
+.temp-city {
+  margin-left: 40px;
+  width: 60%;
+}
+
+.celsius-temp {
+  display: flex;
+}
+
+.scale-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.scale-buttons button {
+  background-color: transparent;
+  border: none;
+  color: var(--primary-color);
+  font-size: var(--md-text);
+}
+
+.scale-buttons button:hover {
+  cursor: pointer;
+  opacity: 100%;
+}
+
+.weather-icon {
+  height: 100px;
+  width: 100px;
+}
+
+#temperature {
+  font-size: var(--temp);
+}
+
+#city-name {
+  font-size: var(--city);
+}
+
+.not-selected {
+  opacity: 50%;
+}

@@ -14,14 +14,16 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/body.css">
   <link rel="stylesheet" href="css/select-card.css">
+  <link rel="stylesheet" href="css/weather-card.css">
+  <link rel="stylesheet" href="css/api-credits.css">
   <title>WeatherNow</title>
 </head>
 
 <body>
-  <main id="main">
+  <main>
     <div class="select-place">
       <div class="select-country">
-        <p>Select a country:</p>
+        <p>Select a Country:</p>
         <div class="buttons">
           <button id="br" class="br selected"><img src="assets/brasil-icon.png" alt="Brazil's flag"></button>
           <button id="ar" class="ar"><img src="assets/argentina-icon.png" alt="Argentina's flag"></button>
@@ -45,9 +47,21 @@
       </div>
     </div>
 
-    <div class="example">
-      <h1 id="city-name"></h1>
-      <h2 id="temperature"></h2>
+    <div class="weather-card">
+      <div class="temp-city">
+        <div class="celsius-temp">
+          <h1 id="temperature">?</h1>
+          <div class="scale-buttons">
+            <button class="celsius">°C</button>
+            <button class="celsius not-selected">°F</button>
+          </div>
+        </div>
+        <h2 id="city-name">????</h2>
+      </div>
+    </div>
+
+    <div class="api-credits">
+      <p>© Powered by OpenWeather API</p>
     </div>
   </main>
 

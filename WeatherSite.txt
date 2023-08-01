@@ -1,8 +1,0 @@
-Temperatura (°C|°F)
-Clima
-Cidade
-Estado
-País
-*Previsão
-
-**Precisa ter um input que irá pegar o país e o estado

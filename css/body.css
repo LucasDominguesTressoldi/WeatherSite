@@ -1,12 +1,17 @@
 :root {
+  --bg-color: rgba(0, 0, 0, 0.3);
   --primary-color: #FFF;
   --secondary-color: #000;
 
-  --title: 20px;
-  --text: 16px;
+  --temp: 100px;
+  --city: 45px;
+  --lg-text: 42px;
+  --md-text: 28px;
+  --sm-text: 16px;
 }
 
 body {
+  background-color: var(--bg-color);
   background-repeat: no-repeat;
   background-size: cover;
   font-family: 'Montserrat', monospace;
