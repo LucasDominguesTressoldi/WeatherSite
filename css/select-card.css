@@ -39,7 +39,7 @@
 .city-input {
   background-color: transparent;
   border: 2px solid var(--primary-color);
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   color: var(--primary-color);
   font-size: var(--sm-text);
   font-weight: bold;
@@ -54,7 +54,7 @@
 .search {
   background-color: transparent;
   border: none;
-  margin-left: 10px;
+  margin: 0 10px;
 }
 
 .search img {
@@ -67,4 +67,30 @@
 
 .search:hover {
   cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+  .select-place {
+    margin: 0 auto;
+    padding: 10px 0;
+    width: 95%;
+  }
+
+  .select-city {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .select-country button img {
+    width: 25px;
+  }
+
+  .city-input {
+    width: 150px;
+  }
+
+  .search img {
+    width: 25px;
+  }
 }

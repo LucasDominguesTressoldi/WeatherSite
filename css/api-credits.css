@@ -1,11 +1,18 @@
 .api-credits {
   background-color: var(--bg-color);
-  border-radius: 5px;
-  bottom: 0;
+  border-radius: var(--border-radius);
   color: var(--primary-color);
   font-size: var(--sm-text);
-  margin: 20px;
+  margin: 0 auto;
+  margin-top: 40px;
+  margin-bottom: 20px;
   padding: 5px;
-  position: absolute;
-  right: 0;
+  text-align: center;
+  width: 270px;
+}
+
+@media (max-width: 300px) {
+  .api-credits {
+    width: 90%;
+  }
 }

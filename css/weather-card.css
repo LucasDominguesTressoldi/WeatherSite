@@ -1,7 +1,7 @@
 .weather-card {
   background-color: var(--bg-color);
   align-items: center;
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   color: var(--primary-color);
   display: flex;
   font-size: var(--md-text);
@@ -10,7 +10,7 @@
   justify-content: space-evenly;
   margin: 0 auto;
   margin-top: 50px;
-  width: 40%;
+  width: 750px;
 }
 
 .temp-city {
@@ -64,4 +64,62 @@
 
 .not-selected {
   opacity: 50%;
+}
+
+@media (max-width: 754px) {
+  .weather-card {
+    width: 621px;
+  }
+}
+
+@media (max-width: 650px) {
+  .weather-card {
+    height: auto;
+    width: 90%;
+  }
+
+  .weather-icon {
+    height: 60px;
+    width: 60px;
+  }
+}
+
+@media (max-width: 440px) {
+  :root {
+    --temp: 50px;
+    --city: 28px;
+  }
+
+  .weather-card {
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 10px;
+    padding: 20px 0;
+  }
+
+  .weather-icon {
+    height: 40px;
+    width: 40px;
+  }
+
+  .temp-city {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    width: auto;
+  }
+
+  .additional-temp-info {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+  }
+
+  .additional-temp-info p {
+    margin: 20px 0;
+  }
 }

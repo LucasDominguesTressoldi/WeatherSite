@@ -1,5 +1,6 @@
 :root {
   --bg-color: rgba(0, 0, 0, 0.3);
+  --border-radius: 10px;
   --primary-color: #FFF;
   --secondary-color: #000;
 
@@ -15,9 +16,24 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   font-family: 'Montserrat', monospace;
+  height: 100vh;
 }
 
 ::placeholder {
   color: var(--primary-color);
   font-weight: bold;
+}
+
+@media (max-width: 650px) {
+  :root {
+    --temp: 70px;
+    --city: 35px;
+    --lg-text: 32px;
+    --md-text: 18px;
+    --sm-text: 12px;
+  }
+
+  body {
+    background-repeat: repeat;
+  }
 }
