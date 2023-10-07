@@ -1,4 +1,5 @@
-const API_KEY = "🤫secret🤫";
+import API_KEY from "./apikey.js";
+
 const searchButton = document.querySelector(".search");
 const countryButtons = document.querySelectorAll(".select-country button");
 const celsiusButton = document.getElementById("c");
